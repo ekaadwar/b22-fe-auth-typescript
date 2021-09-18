@@ -7,7 +7,7 @@ export interface HomeProps {
   navigation: any;
 }
 
-export default class Welcome extends React.Component<HomeProps, any> {
+export default class SignUp extends React.Component<HomeProps, any> {
   constructor(props: HomeProps) {
     super(props);
   }
@@ -26,7 +26,7 @@ export default class Welcome extends React.Component<HomeProps, any> {
         </View>
         <View style={styles.buttonSection}>
           <View style={styles.titlepageWrapper}>
-            <Text style={styles.titlePage}>Welcome</Text>
+            <Text style={styles.titlePage}>SignUp</Text>
           </View>
           <View style={styles.container}>
             <View style={styles.wrapperButton}>
