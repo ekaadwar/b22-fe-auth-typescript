@@ -46,3 +46,23 @@ export const wrapperCard: object = {
   bottom: 0,
   justifyContent: "flex-end",
 };
+
+interface StyleProps {
+  diametre?: number;
+  data: any;
+}
+
+export const circle: any = (diametre = 50, borderWidth = 0) => {
+  const data = {
+    height: diametre,
+    width: diametre,
+    borderRadius: diametre / 2,
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: borderWidth,
+    borderColor: "#11592B",
+    overflow: "hidden",
+  };
+
+  return data;
+};

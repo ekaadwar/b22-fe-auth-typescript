@@ -1,7 +1,12 @@
 import * as React from "react";
 import { Image, View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-import { buttonSection, card, container, mb2, parent, titlePage, wrapperCard } from "../components/Styles";
+import {
+  buttonSection,
+  container,
+  parent,
+  titlePage,
+} from "../components/Styles";
 import Button from "../components/Button";
 import MainSection from "../components/MainSection";
 
@@ -26,8 +31,16 @@ export default class Welcome extends React.Component<HomeProps, any> {
           </View>
           <View style={container}>
             <View style={styles.wrapperButton}>
-              <Button text={"Sign In"} isPrimary mb={10} onPress={() => this.props.navigation.navigate("SignIn")} />
-              <Button text={"Sign Up"} onPress={() => this.props.navigation.navigate("SignUp")} />
+              <Button
+                text={"Sign In"}
+                isPrimary
+                mb={10}
+                onPress={() => this.props.navigation.navigate("SignIn")}
+              />
+              <Button
+                text={"Sign Up"}
+                onPress={() => this.props.navigation.navigate("SignUp")}
+              />
             </View>
           </View>
         </View>

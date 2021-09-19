@@ -8,6 +8,7 @@ import Welcome from "./src/screens/Welcome";
 import SignIn from "./src/screens/SignIn";
 import SignUp from "./src/screens/SignUp";
 import ForgotPass from "./src/screens/ForgotPassword";
+import Home from "./src/screens/Home";
 
 const Stack = createStackNavigator();
 
@@ -40,6 +41,13 @@ const Main = () => {
           <Stack.Screen
             name="ForgotPass"
             component={ForgotPass}
+            options={{ headerShown: false }}
+          />
+        </React.Fragment>
+        <React.Fragment>
+          <Stack.Screen
+            name="Home"
+            component={Home}
             options={{ headerShown: false }}
           />
         </React.Fragment>

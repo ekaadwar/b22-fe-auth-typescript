@@ -51,7 +51,12 @@ const SignIn: React.FC<SigninProps> = ({ navigation }) => {
                 value="Did you forget your password?"
                 mb={10}
               />
-              <Button text="Sign In" isPrimary mb={10} />
+              <Button
+                text="Sign In"
+                isPrimary
+                mb={10}
+                onPress={() => navigation.navigate("Home")}
+              />
               <Link
                 onPress={() => navigation.navigate("SignUp")}
                 value="Create a new account?"
