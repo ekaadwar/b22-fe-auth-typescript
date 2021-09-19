@@ -46,7 +46,11 @@ const SignIn: React.FC<SigninProps> = ({ navigation }) => {
                 placeholder="Please input your password"
                 mb={10}
               />
-              <Link value="Did you forget your password?" mb={10} />
+              <Link
+                onPress={() => navigation.navigate("ForgotPass")}
+                value="Did you forget your password?"
+                mb={10}
+              />
               <Button text="Sign In" isPrimary mb={10} />
               <Link
                 onPress={() => navigation.navigate("SignUp")}

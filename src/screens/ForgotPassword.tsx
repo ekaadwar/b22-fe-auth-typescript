@@ -22,7 +22,7 @@ export interface SignupProps {
   passwordRepeat: string;
 }
 
-const SignUp: React.FC<SignupProps> = ({ navigation }) => {
+const ForgotPassword: React.FC<SignupProps> = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
@@ -33,32 +33,18 @@ const SignUp: React.FC<SignupProps> = ({ navigation }) => {
       <View style={buttonSection}>
         <View style={wrapperCard}>
           <View style={container}>
-            <Text style={[titlePage, mb2]}>Sign Up</Text>
+            <Text style={[titlePage, mb2]}>Forgot Password</Text>
             <View style={[card, mb2]}>
               <Input
                 value={email}
                 onChangeText={setEmail}
                 placeholder="Please input your email"
-                mb={10}
-              />
-              <Input
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-                placeholder="Please input your password"
-                mb={10}
-              />
-              <Input
-                value={passwordRepeat}
-                onChangeText={setPasswordRepeat}
-                secureTextEntry
-                placeholder="Please repeat your password"
                 mb={20}
               />
-              <Button text="Sign Up" isPrimary />
+              <Button text="Send reset code" isPrimary />
               <Link
-                onPress={() => navigation.navigate("SignIn")}
-                value="Already have an account?"
+                onPress={() => navigation.navigate("SignUp")}
+                value="Create a new account??"
               />
             </View>
           </View>
@@ -68,4 +54,4 @@ const SignUp: React.FC<SignupProps> = ({ navigation }) => {
   );
 };
 
-export default SignUp;
+export default ForgotPassword;
