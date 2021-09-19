@@ -13,6 +13,7 @@ import {
 import Button from "../components/Button";
 import Input from "../components/Input";
 import MainSection from "../components/MainSection";
+import Link from "../components/Link";
 
 export interface SigninProps {
   navigation?: any;
@@ -45,7 +46,12 @@ const SignIn: React.FC<SigninProps> = ({ navigation }) => {
                 placeholder="Please input your password"
                 mb={10}
               />
-              <Button text="Sign In" isPrimary />
+              <Link value="Did you forget your password?" mb={10} />
+              <Button text="Sign In" isPrimary mb={10} />
+              <Link
+                onPress={() => navigation.navigate("SignUp")}
+                value="Create a new account?"
+              />
             </View>
           </View>
         </View>
