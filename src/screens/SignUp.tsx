@@ -1,140 +1,71 @@
-import * as React from "react";
-import { Image, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { View, Text } from "react-native";
 
-const mainBg = require("../image/mainBackground.png");
+import {
+  buttonSection,
+  card,
+  container,
+  mb2,
+  parent,
+  titlePage,
+  wrapperCard,
+} from "../components/Styles";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import MainSection from "../components/MainSection";
+import Link from "../components/Link";
 
-export interface HomeProps {
-  navigation: any;
+export interface SignupProps {
+  navigation?: any;
+  email: string;
+  password: string;
+  passwordRepeat: string;
 }
 
-export default class SignUp extends React.Component<HomeProps, any> {
-  constructor(props: HomeProps) {
-    super(props);
-  }
+const SignIn: React.FC<SignupProps> = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordRepeat, setPasswordRepeat] = useState("");
 
-  render() {
-    return (
-      <View style={styles.parent}>
-        <View style={styles.backgroundWrapper}>
-          <Image style={styles.mainBackground} source={mainBg}></Image>
-          <View style={styles.titleWrapper}>
-            <View style={styles.container}>
-              <Text style={styles.titleMain}>Pak Eka</Text>
-              <Text style={styles.titleSub}>Jati Jepara Furniture</Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.buttonSection}>
-          <View style={styles.titlepageWrapper}>
-            <Text style={styles.titlePage}>SignUp</Text>
-          </View>
-          <View style={styles.container}>
-            <View style={styles.wrapperButton}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate("SignIn")} style={[styles.btn, styles.btnPrimary, styles.mb2]}>
-                <Text style={styles.txtBtnPrimary}>Sign In</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate("SignUp")} style={[styles.btn, styles.btnSecondary]}>
-                <Text>Sign Up</Text>
-              </TouchableOpacity>
+  return (
+    <View style={parent}>
+      <MainSection titlePosition="20%" />
+      <View style={buttonSection}>
+        <View style={wrapperCard}>
+          <View style={container}>
+            <Text style={[titlePage, mb2]}>Sign Up</Text>
+            <View style={[card, mb2]}>
+              <Input
+                value={email}
+                onChangeText={setEmail}
+                placeholder="Please input your email"
+                mb={10}
+              />
+              <Input
+                value={password}
+                onChangeText={setPassword}
+                secureTextEntry
+                placeholder="Please input your password"
+                mb={10}
+              />
+              <Input
+                value={passwordRepeat}
+                onChangeText={setPasswordRepeat}
+                secureTextEntry
+                placeholder="Please repeat your password"
+                mb={20}
+              />
+              <Button text="Sign Up" isPrimary />
+              <Link
+                onPress={() => navigation.navigate("SignIn")}
+                value="Already have an account?"
+              />
             </View>
           </View>
         </View>
       </View>
-    );
-  }
-}
+    </View>
+  );
+};
 
-const styles = StyleSheet.create({
-  parent: {
-    flex: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-
-  backgroundWrapper: {
-    backgroundColor: "grey",
-    height: "75%",
-    width: "100%",
-    position: "relative",
-    overflow: "hidden",
-    borderBottomLeftRadius: 25,
-    borderBottomRightRadius: 25,
-  },
-
-  mainBackground: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-  },
-
-  titleWrapper: {
-    position: "absolute",
-    top: "35%",
-    width: "100%",
-  },
-
-  titleMain: {
-    fontSize: 60,
-    color: "white",
-  },
-
-  titleSub: {
-    fontSize: 32,
-    color: "white",
-  },
-
-  buttonSection: {
-    position: "relative",
-    width: "100%",
-    flex: 1,
-  },
-
-  titlepageWrapper: {
-    position: "absolute",
-    width: "100%",
-    top: -72,
-  },
-
-  titlePage: {
-    fontSize: 32,
-    color: "white",
-    textAlign: "center",
-  },
-
-  wrapperButton: {
-    height: "100%",
-    justifyContent: "center",
-  },
-
-  btn: {
-    width: "100%",
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: "#11592B",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  btnPrimary: {
-    backgroundColor: "#11592B",
-  },
-
-  btnSecondary: {
-    backgroundColor: "white",
-    borderWidth: 2,
-    borderColor: "#11592B",
-  },
-
-  mb2: {
-    marginBottom: 10,
-  },
-
-  txtBtnPrimary: {
-    color: "white",
-  },
-
-  container: {
-    paddingHorizontal: 25,
-    width: "100%",
-  },
-});
+export default SignIn;
