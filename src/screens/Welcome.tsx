@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Image, View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import Button from "../components/Button";
 
 const mainBg = require("../image/mainBackground.png");
 
@@ -30,12 +31,8 @@ export default class Welcome extends React.Component<HomeProps, any> {
           </View>
           <View style={styles.container}>
             <View style={styles.wrapperButton}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate("SignIn")} style={[styles.btn, styles.btnPrimary, styles.mb2]}>
-                <Text style={styles.txtBtnPrimary}>Sign In</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate("SignUp")} style={[styles.btn, styles.btnSecondary]}>
-                <Text>Sign Up</Text>
-              </TouchableOpacity>
+              <Button text={"Sign In"} isPrimary mb={10} onPress={() => this.props.navigation.navigate("SignIn")} />
+              <Button text={"Sign Up"} onPress={() => this.props.navigation.navigate("SignUp")} />
             </View>
           </View>
         </View>

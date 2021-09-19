@@ -1,48 +1,43 @@
 import * as React from "react";
 import { Image, View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
+import Button from "../components/Button";
+
 const mainBg = require("../image/mainBackground.png");
 
-export interface HomeProps {
-  navigation: any;
+export interface SigninProps {
+  navigation?: any;
+  email: string;
+  password: string;
 }
 
-export default class Login extends React.Component<HomeProps, any> {
-  constructor(props: HomeProps) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <View style={styles.parent}>
-        <View style={styles.backgroundWrapper}>
-          <Image style={styles.mainBackground} source={mainBg}></Image>
-          <View style={styles.titleWrapper}>
-            <View style={styles.container}>
-              <Text style={styles.titleMain}>Pak Eka</Text>
-              <Text style={styles.titleSub}>Jati Jepara Furniture</Text>
-            </View>
+const SignIn: React.FC<SigninProps> = ({ navigation }) => {
+  return (
+    <View style={styles.parent}>
+      <View style={styles.backgroundWrapper}>
+        <Image style={styles.mainBackground} source={mainBg}></Image>
+        <View style={styles.titleWrapper}>
+          <View style={styles.container}>
+            <Text style={styles.titleMain}>Pak Eka</Text>
+            <Text style={styles.titleSub}>Jati Jepara Furniture</Text>
           </View>
         </View>
-        <View style={styles.buttonSection}>
-          <View style={styles.titlepageWrapper}>
-            <Text style={styles.titlePage}>Login</Text>
-          </View>
+      </View>
+      <View style={styles.buttonSection}>
+        <View style={styles.wrapperCard}>
           <View style={styles.container}>
-            <View style={styles.wrapperButton}>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate("SignIn")} style={[styles.btn, styles.btnPrimary, styles.mb2]}>
-                <Text style={styles.txtBtnPrimary}>Sign In</Text>
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate("SignUp")} style={[styles.btn, styles.btnSecondary]}>
-                <Text>Sign Up</Text>
-              </TouchableOpacity>
+            <Text style={[styles.titlePage, styles.mb2]}>Sign In</Text>
+            <View style={[styles.card, styles.mb2]}>
+              <Button text="Sign In" />
             </View>
           </View>
         </View>
       </View>
-    );
-  }
-}
+    </View>
+  );
+};
+
+export default SignIn;
 
 const styles = StyleSheet.create({
   parent: {
@@ -69,7 +64,7 @@ const styles = StyleSheet.create({
 
   titleWrapper: {
     position: "absolute",
-    top: "35%",
+    top: "20%",
     width: "100%",
   },
 
@@ -106,11 +101,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
+  wrapperCard: {
+    width: "100%",
+    // backgroundColor: "coral",
+    height: 500,
+    position: "absolute",
+    bottom: 0,
+    justifyContent: "flex-end",
+  },
+
   btn: {
     width: "100%",
     height: 40,
     borderRadius: 20,
-    backgroundColor: "#11592B",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -125,8 +128,17 @@ const styles = StyleSheet.create({
     borderColor: "#11592B",
   },
 
+  card: {
+    backgroundColor: "white",
+    paddingHorizontal: 25,
+    paddingVertical: 40,
+    borderRadius: 25,
+    alignItems: "center",
+    elevation: 1,
+  },
+
   mb2: {
-    marginBottom: 10,
+    marginBottom: 20,
   },
 
   txtBtnPrimary: {
